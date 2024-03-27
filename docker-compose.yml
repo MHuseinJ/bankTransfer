@@ -1,0 +1,48 @@
+version: '3.9'
+services:
+#  app1:
+#    container_name: bankTransfer
+#    environment:
+#      - POSTGRES_USER=${DB_USER}
+#      - POSTGRES_PASSWORD=${DB_PASSWORD}
+#      - POSTGRES_DB=${DB_NAME}
+#      - DATABASE_HOST=${DB_HOST}
+#      - DATABASE_PORT=${DB_PORT}
+#    tty: true
+#    build: ./api/
+#    ports:
+#      - 8001:8001
+#    restart: on-failure
+#    volumes:
+#      - .:/app
+#    depends_on:
+#      - postgresdb
+#
+#  app2:
+#    container_name: bankAPI
+#    environment:
+#      - POSTGRES_USER=${DB_USER}
+#      - POSTGRES_PASSWORD=${DB_PASSWORD}
+#      - POSTGRES_DB=${DB_NAME}
+#      - DATABASE_HOST=${DB_HOST}
+#      - DATABASE_PORT=${DB_PORT}
+#    tty: true
+#    build: ./bank/
+#    ports:
+#      - 8002:8002
+#    restart: on-failure
+#    volumes:
+#      - .:/app
+#    depends_on:
+#      - postgresdb
+
+  postgresdb:
+    image: postgres:latest
+    container_name: postgres_container
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+      - DATABASE_HOST=${DB_HOST}
+    ports:
+      - '5432:5432'
