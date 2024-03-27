@@ -1,7 +1,8 @@
 # Bank Transfer API
 ## requirement
-- go
-- Docker and docker compose (for postgres)
+- Docker
+- docker compose
+- client DB
   
 ## structure code
 consist of 2 apps
@@ -67,11 +68,7 @@ whe have 3 API on each apps (mock and api)
 every step need to open different terminal,
 step to run: 
 1. run db
-   > docker-compose up
-2. run api
-   > cd api && go build && ./api
-3. run api
-   > cd bank && go build && ./bank
+   > docker-compose up --build
 
 after run, we can test it via postman, the [collection](postman.json)  already in the repo
 

@@ -31,7 +31,7 @@ func main() {
 
 	router := mux.NewRouter()
 
-	var port = ":" + os.Getenv("APP_PORT")
+	var port = ":" + os.Getenv("BANK_APP_PORT")
 	router.HandleFunc("/bank/validate", accountHandler.Validate).Methods("POST")
 	router.HandleFunc("/bank/setlement", transactionHandler.Settlement).Methods("POST")
 	router.HandleFunc("/bank/transfer", transactionHandler.InitTransfer).Methods("POST")

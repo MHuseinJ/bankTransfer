@@ -1,13 +1,19 @@
 # syntax=docker/dockerfile:1
 
 FROM golang:1.19
-LABEL authors="mhuseinj"
 
+# Set destination for COPY
 WORKDIR /app
-COPY go.mod go.sum ./
-COPY *.go ./
 
-RUN go build -o /bankApi
-EXPOSE 8002
+ENV GO111MODULE=on
 
-CMD ["/bankApi"]
+COPY . .
+RUN go install
+
+# Build
+RUN go build -o /api
+
+EXPOSE 8001
+
+# Run
+CMD ["/api"]

@@ -32,7 +32,7 @@ func main() {
 
 	router := mux.NewRouter()
 
-	var port = ":" + os.Getenv("APP_PORT")
+	var port = ":" + os.Getenv("API_APP_PORT")
 	router.HandleFunc("/validate", accountHandler.Validate).Methods("POST")
 	router.HandleFunc("/disbursement", transactionHandler.Disbursement).Methods("POST")
 	router.HandleFunc("/disbursement-callback", transactionHandler.DisbursementCallback).Methods("PUT")
