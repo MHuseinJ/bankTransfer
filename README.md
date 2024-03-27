@@ -20,7 +20,7 @@ api
 |-----|-----------|------repository
 |-----|-----------|------service
 |---config
-|-----|-----DBConfig
+|-----|-----dbConfig
 go.mod
 main.go
 .env
@@ -39,7 +39,7 @@ bank
 |-----|-----------|------repository
 |-----|-----------|------service
 |---config
-|-----|-----DBConfig
+|-----|-----dbConfig
 go.mod
 main.go
 .env
