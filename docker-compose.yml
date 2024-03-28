@@ -16,7 +16,7 @@ services:
     volumes:
       - .:/app
     depends_on:
-      - app2
+      - postgresdb
 
 
   app2:

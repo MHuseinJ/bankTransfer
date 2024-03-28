@@ -6,6 +6,7 @@ import (
 	"gorm.io/gorm"
 	"io"
 	"net/http"
+	"os"
 )
 
 type TransactionRepo struct {
@@ -39,7 +40,7 @@ func (tr TransactionRepo) callTransferBank(transaction Transaction) (Transaction
 	bodyRequest, err := json.Marshal(transaction)
 	var payload = bytes.NewBufferString(string(bodyRequest))
 
-	request, err := http.NewRequest("POST", "http://localhost:8002/bank/transfer", payload)
+	request, err := http.NewRequest("POST", os.Getenv("BANK_HOST")+"/bank/transfer", payload)
 	if err != nil {
 		return Transaction{}, err
 	}

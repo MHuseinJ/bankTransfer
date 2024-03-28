@@ -68,7 +68,7 @@ whe have 3 API on each apps (mock and api)
 every step need to open different terminal,
 step to run: 
 1. run db
-   > docker-compose up --build
+   > docker-compose up --build -d
 
 after run, we can test it via postman, the [collection](postman.json)  already in the repo
 

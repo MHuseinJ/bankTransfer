@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"io"
 	"net/http"
+	"os"
 )
 
 type TransactionService struct {
@@ -21,7 +22,7 @@ func (ts TransactionService) setlement(transaction Transaction) (bool, error) {
 	bodyRequest, err := json.Marshal(transaction)
 	var payload = bytes.NewBufferString(string(bodyRequest))
 
-	request, err := http.NewRequest("POST", "http://localhost:8001/disbursement-callback", payload)
+	request, err := http.NewRequest("POST", os.Getenv("API_HOST")+"/disbursement-callback", payload)
 	if err != nil {
 		return false, err
 	}

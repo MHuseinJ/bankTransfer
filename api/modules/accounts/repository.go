@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"io"
 	"net/http"
+	"os"
 )
 
 type AccountRepo struct {
@@ -22,7 +23,7 @@ func (tr AccountRepo) validateUser(bankAccount *Account) (bool, error) {
 	bodyRequest, err := json.Marshal(bankAccount)
 	var payload = bytes.NewBufferString(string(bodyRequest))
 
-	request, err := http.NewRequest("POST", "http://localhost:8002/bank/validate", payload)
+	request, err := http.NewRequest("POST", os.Getenv("BANK_HOST")+"/bank/validate", payload)
 	if err != nil {
 		return false, err
 	}
